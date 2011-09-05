@@ -1,0 +1,218 @@
+<html>
+
+<head>
+    <title>Fluid Grid Calculator</title>
+    
+    <style type="text/css">
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+           v2.0 | 20110126
+           License: none (public domain)
+        */
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+        	margin: 0;
+        	padding: 0;
+        	border: 0;
+        	font-size: 100%;
+        	font: inherit;
+        	vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+        	display: block;
+        }
+        body {
+        	line-height: 1;
+        }
+        ol, ul {
+        	list-style: none;
+        }
+        blockquote, q {
+        	quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+        	content: '';
+        	content: none;
+        }
+        table {
+        	border-collapse: collapse;
+        	border-spacing: 0;
+        }
+        
+        /* End reset */
+    
+        body {
+            width: 98%;
+            padding: 1%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        form {
+            width: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+    
+        fieldset {
+            float: left;
+            width: 140px;
+            overflow: hidden;
+        }
+        
+        legend {
+            margin-bottom: 7px;
+        }
+        
+        fieldset[name="target"] {
+            margin-right: 20px;
+        }
+        
+        fieldset input[type="text"] {
+            width: 140px;
+            margin-bottom: 4px;
+        }
+        
+        fieldset input[type="button"] {
+            font-size: 14px;
+            width: 44px;
+            height: 1.5em;
+            margin-bottom: 4px;
+        }
+        
+        fieldset input[value="clear"] {
+            width: 90px;
+        }
+        
+        fieldset[name="results"] {
+            margin: 0 auto;
+            margin-top: 10px;
+            padding: 0;
+            width: 100%;
+            clear: left;
+            overflow: hidden;
+        }
+        
+        fieldset input#em {
+            float: left;
+            width: 140px;
+            margin-right: 20px;
+        }
+        
+        fieldset input#percent {
+            width: 140px;
+        }
+
+        fieldset input#reset {
+            width: 300px;
+        }
+        
+        fieldset input#label {
+            width: 300px;
+            font-size: 12px;
+            margin-top: 20px;
+            color: #555;
+            text-align: center;
+            clear: left;
+            border: 0;
+            padding: 0;
+        }
+        
+    </style>
+    
+    <script type="text/javascript">
+        
+        function press(field, value) {
+            if(value=="clear") {
+                document.getElementById(field + '-value').value = '';
+            }
+            else
+            {
+                document.getElementById(field + '-value').value += value;
+            }
+        }
+            
+        function calculate(unit) {
+            target = document.getElementById('target-value').value;
+            context = document.getElementById('context-value').value;
+            
+            result = target / context;
+            
+            if(unit=="percent") {
+                unit = "%";
+                result *= 100;
+            }
+            
+            document.getElementById('label').value = result + unit + ';  /* ' + target + 'px / ' + context + 'px */';
+        }
+        
+        function resetPage() {
+            document.getElementById("target-value").value = "";
+            document.getElementById("context-value").value = "";
+            document.getElementById("label").value = "---";
+        }
+            
+        
+    </script>
+</head>
+
+<body>
+    <form name="calc">
+        <fieldset name="target">
+            <legend>Target</legend>
+            <input id="target-value" type="text" value="" />
+            <input type="button" value="1" onclick="press('target', this.value)">
+            <input type="button" value="2" onclick="press('target', this.value)">
+            <input type="button" value="3" onclick="press('target', this.value)">
+            <input type="button" value="4" onclick="press('target', this.value)">
+            <input type="button" value="5" onclick="press('target', this.value)">
+            <input type="button" value="6" onclick="press('target', this.value)">
+            <input type="button" value="7" onclick="press('target', this.value)">
+            <input type="button" value="8" onclick="press('target', this.value)">
+            <input type="button" value="9" onclick="press('target', this.value)">
+            <input type="button" value="0" onclick="press('target', this.value)">
+            <input type="button" value="clear" onclick="press('target', this.value)">
+        </fieldset>
+
+        <fieldset name="context">
+            <legend>Context</legend>
+            <input id="context-value" type="text" value="" />
+            <input type="button" value="1" onclick="press('context', this.value)">
+            <input type="button" value="2" onclick="press('context', this.value)">
+            <input type="button" value="3" onclick="press('context', this.value)">
+            <input type="button" value="4" onclick="press('context', this.value)">
+            <input type="button" value="5" onclick="press('context', this.value)">
+            <input type="button" value="6" onclick="press('context', this.value)">
+            <input type="button" value="7" onclick="press('context', this.value)">
+            <input type="button" value="8" onclick="press('context', this.value)">
+            <input type="button" value="9" onclick="press('context', this.value)">
+            <input type="button" value="0" onclick="press('context', this.value)">
+            <input type="button" value="clear" onclick="press('context', this.value)">
+        </fieldset>
+        
+        <fieldset name="results">
+            <legend>Results</legend>
+            <input type="button" id="em" value="Get Em" onclick="calculate('em')" />
+            <input type="button"  id="percent" value="Get Percent" onclick="calculate('percent')">
+            <input type="button" id="reset" value="Reset" onclick="resetPage()" />
+            <input type="text" id="label" value="---" onclick="this.select()" />
+        </fieldset>
+    
+    </form>
+</body>
+    
+</html>

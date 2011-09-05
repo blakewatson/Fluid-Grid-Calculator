@@ -1,0 +1,30 @@
+This is a tool that will help you create fluid grids in your CSS. Check out
+the following article by Ethan Marcotte. In it, he explains the math behind
+turning pixel values into percentages and ems.
+
+A List Apart
+"Fluid Grids"
+by Ethan Marcotte
+URL: http://www.alistapart.com/articles/fluidgrids/
+
+The tool takes your target value (in pixels) and divides it by the pixel
+value of the context. Here's an example:
+
+You want to set the font size of your p tags to 14px. Currently, the font size
+is the browser default of 16px. So you enter a target of 14 and a context
+of 16. Click "Get Em" since you want the value in ems. That produces:
+
+0.875em;  /* 14px / 16px */
+
+You can paste that right into your CSS!
+
+I made this because I am unable to use a regular keyboard. Instead, I use
+an onscreen keyboard, which results in slow typing. This tool saves me
+time by:
+
+1) Doing the calculation
+2) Writing out the CSS value
+3) Adding the very handy comment containing the equivalent px values, and
+4) Auto selecting the result for easy copying
+
+If you have any feedback, email me at desk@blakewatson.com. Enjoy!
